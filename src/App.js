@@ -4,13 +4,14 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Container } from '@material-ui/core';
+import Header from './Header';
 
 const App = () => {
   const [champArray, setChampArray] = useState([]);
   const champsArrayGet = async () => {
     try {
       const data = await axios.get(
-        `http://ddragon.leagueoflegends.com/cdn/11.16.1/data/en_US/champion.json`
+        `https://ddragon.leagueoflegends.com/cdn/11.16.1/data/en_US/champion.json`
       );
       console.log(data.data.data);
       setChampArray(data.data.data);
@@ -24,7 +25,17 @@ const App = () => {
 
   return (
     <>
-      <Container maxWidth="md">Hello</Container>
+      <div
+        className="App"
+        style={{ height: '100vh', backgroundColor: '#282c34', color: 'white' }}
+      >
+        <Container
+          maxWidth="md"
+          style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
+        >
+          <Header />
+        </Container>
+      </div>
     </>
   );
 };
