@@ -16,7 +16,7 @@ const Header = () => {
       <span className="title">Champ Hunt</span>
       <div className="inputs">
         <ThemeProvider theme={darkTheme}>
-          <TextField id="standard-basic" label="Standard" />
+          <TextField id="standard-basic" label="Enter Champion" />
         </ThemeProvider>
       </div>
     </div>
