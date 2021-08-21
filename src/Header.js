@@ -8,7 +8,7 @@ import {
   ThemeProvider,
 } from '@material-ui/core'
 
-const Header = () => {
+const Header = ({ version, champ, setChamp }) => {
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -21,9 +21,8 @@ const Header = () => {
   const champsArrayGet = async () => {
     try {
       const data = await axios.get(
-        `https://ddragon.leagueoflegends.com/cdn/11.16.1/data/en_US/champion.json`
+        `https://ddragon.leagueoflegends.com/cdn/${version.toString()}/data/en_US/champion.json`
       )
-      console.log(data.data.data)
       setChampArray(data.data.data)
     } catch (error) {
       console.log(error)
@@ -32,14 +31,10 @@ const Header = () => {
 
   useEffect(() => {
     champsArrayGet()
-  }, [])
+  }, [version])
 
   const [champArray, setChampArray] = useState([])
   let keys = Object.keys(champArray)
-  const [champ, setChamp] = useState('')
-
-  //   console.log(keys)
-  //   console.log(champ)
 
   return (
     <div>

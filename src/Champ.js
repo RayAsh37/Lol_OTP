@@ -1,6 +1,6 @@
 import './Champ.css'
 
-const Champ = () => {
+const Champ = ({ champ }) => {
   return (
     <>
       <div>
