@@ -6,7 +6,7 @@ import Champ from './Champ'
 import axios from 'axios'
 
 const App = () => {
-  const [version, setVersion] = useState('')
+  const [version, setVersion] = useState([])
   const versionArrayGet = async () => {
     try {
       const data = await axios.get(
@@ -22,21 +22,23 @@ const App = () => {
     versionArrayGet()
   }, [])
 
-  const [champ, setChamp] = useState('')
+  const [champ, setChamp] = useState([])
 
   return (
-    <div
-      className='App'
-      style={{ height: '100vh', backgroundColor: '#282c34', color: 'white' }}
-    >
-      <Container
-        maxWidth='md'
-        style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
+    <>
+      <div
+        className='App'
+        style={{ height: '200vh', backgroundColor: '#282c34', color: 'white' }}
       >
-        <Header version={version} champ={champ} setChamp={setChamp} />
-        <Champ champ={champ} />
-      </Container>
-    </div>
+        <Container
+          maxWidth='md'
+          style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}
+        >
+          <Header version={version} champ={champ} setChamp={setChamp} />
+          <Champ champ={champ} version={version} />
+        </Container>
+      </div>
+    </>
   )
 }
 
