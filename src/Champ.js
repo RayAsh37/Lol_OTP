@@ -4,21 +4,21 @@ import axios from 'axios'
 
 const Champ = ({ champ, version }) => {
   const [champion, setChampion] = useState('')
-  const championGet = async () => {
-    try {
-      const data = await axios.get(
-        `http://ddragon.leagueoflegends.com/cdn/${version.toString()}/data/en_US/champion/${champ}.json`
-      )
-      setChampion(data.data.data[champ])
-      // console.log(data.data.data[champ])
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   useEffect(() => {
+    const championGet = async () => {
+      try {
+        const data = await axios.get(
+          `http://ddragon.leagueoflegends.com/cdn/${version.toString()}/data/en_US/champion/${champ}.json`
+        )
+        setChampion(data.data.data[champ])
+        // console.log(data.data.data[champ])
+      } catch (error) {
+        console.log(error)
+      }
+    }
     championGet()
-  }, [champ])
+  }, [champ, version])
 
   if (champ === champion.name) {
     let keys = Object.keys(champion.stats)

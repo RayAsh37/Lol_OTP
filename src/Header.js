@@ -18,18 +18,17 @@ const Header = ({ version, champ, setChamp }) => {
     },
   })
 
-  const champsArrayGet = async () => {
-    try {
-      const data = await axios.get(
-        `https://ddragon.leagueoflegends.com/cdn/${version.toString()}/data/en_US/champion.json`
-      )
-      setChampArray(data.data.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   useEffect(() => {
+    const champsArrayGet = async () => {
+      try {
+        const data = await axios.get(
+          `https://ddragon.leagueoflegends.com/cdn/${version.toString()}/data/en_US/champion.json`
+        )
+        setChampArray(data.data.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
     champsArrayGet()
   }, [version])
 
