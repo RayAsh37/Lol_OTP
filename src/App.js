@@ -28,7 +28,7 @@ const App = () => {
     <>
       <div
         className='App'
-        style={{ height: '200vh', backgroundColor: '#282c34', color: 'white' }}
+        style={{ height: '500vh', backgroundColor: '#282c34', color: 'white' }}
       >
         <Container
           maxWidth='md'
