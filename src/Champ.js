@@ -9,7 +9,7 @@ const Champ = ({ champ, version }) => {
     const championGet = async () => {
       try {
         const data = await axios.get(
-          `http://ddragon.leagueoflegends.com/cdn/${version.toString()}/data/en_US/champion/${champ}.json`
+          `https://ddragon.leagueoflegends.com/cdn/${version.toString()}/data/en_US/champion/${champ}.json`
         )
         setChampion(data.data.data[champ])
         // console.log(data.data.data[champ])
@@ -28,7 +28,7 @@ const Champ = ({ champ, version }) => {
           <h2>{champion.name}</h2>
           <h3>{champion.title}</h3>
           <img
-            src={`http://ddragon.leagueoflegends.com/cdn/11.16.1/img/champion/${champion.name}.png`}
+            src={`https://ddragon.leagueoflegends.com/cdn/11.16.1/img/champion/${champion.name}.png`}
             alt={`This is ${champion.name}`}
           />
           <h3>Lore</h3>
