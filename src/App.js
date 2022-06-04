@@ -22,7 +22,7 @@ const App = () => {
     versionArrayGet()
   }, [])
 
-  const [champ, setChamp] = useState([])
+  const [champ, setChamp] = useState('')
 
   return (
     <>

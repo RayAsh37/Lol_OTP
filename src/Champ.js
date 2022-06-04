@@ -20,7 +20,7 @@ const Champ = ({ champ, version }) => {
     championGet()
   }, [champ, version])
 
-  if (champ === champion.name) {
+  if (champ === champion.id) {
     let keys = Object.keys(champion.stats)
     return (
       <>
@@ -28,7 +28,7 @@ const Champ = ({ champ, version }) => {
           <h2>{champion.name}</h2>
           <h3>{champion.title}</h3>
           <img
-            src={`https://ddragon.leagueoflegends.com/cdn/11.16.1/img/champion/${champion.name}.png`}
+            src={`https://ddragon.leagueoflegends.com/cdn/11.16.1/img/champion/${champion.id}.png`}
             alt={`This is ${champion.name}`}
           />
           <h3>Lore</h3>
